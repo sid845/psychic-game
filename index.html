@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Psychic game
+	</title>
+</head>
+<body>
+	<div class="game">
+	<h1>The Psychic Game</h1>
+	<p>guess what letter I'm thinking of:</p>
+	<p>Wins : <span id="win"> </span></p>
+	<p>Losses : <span id="loss"> </span></p>
+	<p>Guesses remaining : <span id="gleft"> </span>
+	<p>Guesses so far :<span id="demo"> </span> </p>
+	</div>
+	<script>
+	var wins=0;
+	var losses=0;
+	var gleft=10;
+	var letters=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+	function reset()
+		{
+			gleft=10;
+			guesses=[];
+		}
+	document.onkeyup=function(event)
+	{
+		var userGuess=event.key;
+		var guesses=[ ];
+		guesses.push(userGuess);
+		var letters=document.getElementById("demo").innerHTML += guesses+",";
+		var guess=letters[Math.floor(Math.random() * letters.length)];
+		
+			if(guess === userGuess) {
+				
+				wins++;
+                document.getElementById("win").innerHTML = wins;
+				reset();
+			}
+			if(guess != userGuess) {
+				gleft--;
+				document.getElementById("gleft").innerHTML = gleft;
+				if(gleft===0)
+				{
+					losses++;
+					document.getElementById("loss").innerHTML = losses;
+					reset();
+				}
+			}
+    };
+	</script>
+</body>
+</html>
