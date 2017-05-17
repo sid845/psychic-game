@@ -3,7 +3,7 @@ var wins=0;
 	var gleft=9;
 	var letters=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 	var guess=letters[Math.floor(Math.random() * 25)];
-	// document.getElementById("demo1").innerHTML= guess;
+	
 	
 	document.onkeyup=function(event)
 	{
@@ -20,11 +20,14 @@ var wins=0;
 			guesses.length=0;
 			document.getElementById("demo").innerHTML =" ";
 			guess=letters[Math.floor(Math.random() * 25)];
-			// document.getElementById("demo1").innerHTML= guess;
+			
 		}
 		if(guess != userGuess) {
+			
 			gleft--;
+			
 			document.getElementById("gleft").innerHTML = gleft;
+			
 			if(gleft<1)
 			{
 				losses++;
@@ -33,7 +36,7 @@ var wins=0;
 				guesses.length=0;
 				document.getElementById("demo").innerHTML =" ";
 				guess=letters[Math.floor(Math.random() * 25)];
-				// document.getElementById("demo1").innerHTML= guess;
+				
 			}
 		}
     };
