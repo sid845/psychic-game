@@ -10,7 +10,7 @@ var wins=0;
 		var userGuess=event.key;
 		var guesses=[ ];
 		guesses.push(userGuess);
-		var letters=document.getElementById("demo").innerHTML += guesses+",";
+		var letters2=document.getElementById("demo").innerHTML += guesses+",";
 		
 		if(guess === userGuess) {
 			
